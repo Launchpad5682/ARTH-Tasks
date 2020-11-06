@@ -37,6 +37,8 @@ def hello():
                 os.system(f"docker container stop {os_name}")
                 os.system(f"docker system prune --force")
                 os.chdir(cd)
+                input("Task Completed, press Enter To Continue")
+                continue
             elif(envi == "local"):
                 os.system(f"yum -y install python3")
                 os.system(f"python3")
@@ -44,6 +46,7 @@ def hello():
             envi = input("Where do you want to run this web Server? container/local\n")
             if(envi == "container"):
                 os.system("clear")
+                cd=os.getcwd()
                 os_name = input("Enter the name of the container ")
                 os.chdir("docker_task/web_server_task")
                 print("Now you can proceed ahead with the docker container set up")
@@ -52,6 +55,9 @@ def hello():
                 os.system(f"docker container run -it --name {os_name} myrepl:v1")
                 os.system(f"docker container stop {os_name}")
                 os.system(f"docker system prune --force")
+                os.chdir(cd)
+                input("Task Completed, press Enter To Continue")
+                continue
             if(envi == "local"):
                 os.system("yum -y install httpd")
                 os.system(f"systemctl start httpd")

@@ -1,7 +1,7 @@
 import os
 from partition_lvm_static import partition_menu
 from hadoop import hadoop
-from hadoop import hadoop_setup
+# from hadoop import hadoop_setup
 from docker_task import script
 from AWS import awsmain
 
@@ -20,24 +20,25 @@ if password != "ARTH":
 
 
 def main():
-    os.system("clear")
-    print('Select the options to perform')
-    print('1. AWS CLI')
-    print('2. Hadoop')
-    print('3. Modifying Storages')
-    print('4. Docker and Web Server')
-    print('5. Quit')
-
-    main_var = int(input('Enter the option: '))
 
     while True:
+        os.system("clear")
+        print('Select the options to perform')
+        print('1. AWS CLI')
+        print('2. Hadoop')
+        print('3. Modifying Storages')
+        print('4. Docker and Web Server')
+        print('5. Quit')
+
+        main_var = int(input('Enter the option: '))
+
 
         if main_var == 1:
             awsmain.hello_from_aws()
             continue
 
         elif main_var == 2:
-            hadoop_setup.hadoop()
+            # hadoop_setup.hadoop()
             continue
 
         elif main_var == 3:
