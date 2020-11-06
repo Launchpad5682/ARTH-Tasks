@@ -1,7 +1,7 @@
 import os
 from partition_lvm_static import partition_menu
 from hadoop import hadoop
-# from hadoop import hadoop_setup
+from hadoop import hadoop_setup
 from docker_task import script
 from AWS import awsmain
 
@@ -38,7 +38,7 @@ def main():
             continue
 
         elif main_var == 2:
-            # hadoop_setup.hadoop()
+            hadoop_setup.hadoop()
             continue
 
         elif main_var == 3:
