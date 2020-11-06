@@ -24,7 +24,7 @@ def hello():
         """)
         option = int(input("Enter your Choice\n"))
         if option == 1:
-            envi = input("Where do you want to run this python interpreter? container/local\n")
+            envi = input("Where do you want to run this python interpreter? container/local \n")
             if(envi == "container"):
                 os.system("clear")
                 cd=os.getcwd()
