@@ -41,7 +41,7 @@ def hello():
                 os.system(f"yum -y install python3")
                 os.system(f"python3")
         if(option == 2):
-            envi = input("Where do you want to run this web Server? container/local")
+            envi = input("Where do you want to run this web Server? container/local\n")
             if(envi == "container"):
                 os.system("clear")
                 os_name = input("Enter the name of the container ")

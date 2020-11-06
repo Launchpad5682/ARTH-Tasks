@@ -4,6 +4,20 @@ from hadoop import hadoop_setup
 from docker_task import script
 from AWS import awsmain
 
+import getpass
+os.system("clear")
+os.system("tput setaf 3")
+print("\t\t\t Welcome to our Menu")
+os.system("tput setaf 7")
+print("\t\t\t -------------")
+
+password = getpass.getpass("Enter your password to continue: ")
+
+if password!="ARTH":
+    print("Password is incorrect")
+    exit()
+
+
 def main():
     os.system("clear")
     print('Select the options to perform')
