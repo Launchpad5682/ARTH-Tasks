@@ -1,5 +1,6 @@
-from partition import partition
-from hadoop import hadoop_setup
+from partition_lvm_static import partition_menu
+from hadoop import hadoop
+
 
 def main():
 
@@ -18,10 +19,10 @@ def main():
             pass
 
         elif main_var == 2:
-            hadoop_setup.hadoop()
+            hadoop.hadoop()
 
         elif main_var == 3:
-            partition.partition()
+            partition_menu.partition()
 
         elif main_var == 4:
             pass

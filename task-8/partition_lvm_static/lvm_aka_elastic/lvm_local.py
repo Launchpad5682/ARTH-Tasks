@@ -2,11 +2,10 @@ import os
 
 
 def LVM_local():
-
+    print("You are in Local execution console-->")
+    
     while True:
         os.system('clear')
-        print('Program to add/modify the Volume Group/ Logical Volume')
-        print('------------------------------------------------------')
         print("1: Create Volume Group")
         print('2: Create Logical Volume')
         print('3: Mount the Volume')
