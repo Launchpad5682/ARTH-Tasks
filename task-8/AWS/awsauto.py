@@ -85,7 +85,8 @@ def ebs():
 		Press 3: To attach EBS
 		Press 4: To detach EBS
 		Press 5: To Delete the EBS
-		Press 6: Return to menu
+		Press 6: Create a SnapShot of EBS
+		Press 7: Return to menu
 		""")
 
         
@@ -102,7 +103,10 @@ def ebs():
 		elif i==5:
 			Deleting_ebs()
 		elif i==6:
+			create_snapshot()
+		elif i==7:
 			return
+
 		else:
 			input("\n Invalid option, please press enter to continue") 
 
@@ -139,6 +143,12 @@ def sg():
 			exit()
 		else:
 			input("\n Invalid option, please press enter to continue") 
+
+def create_snapshot():
+	a=input("Enter Volume_ID: ")
+	b=input("Enter The Description of This Snapshot: \n")
+	os.system(f"aws ec2 create-snapshot --volume-id {a} --description {b}")
+	input("\n \nTask Completed, Press Enter To continue")
 
 
 def launching_ec2():
