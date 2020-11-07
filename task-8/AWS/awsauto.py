@@ -12,10 +12,12 @@ import os
 def configure_aws():
 	print("Configure AWS")
 	os.system('aws configure')
+	input("\n \nTask Completed, Press Enter To continue")
 
 def key_pair():
 	key = input('Enter key name you want to create : ')
 	os.system('aws ec2 create-key-pair --key-name {}'.format(key))
+	input("\n \nTask Completed, Press Enter To continue")
 
 def ec2():
 	while True:
@@ -147,7 +149,7 @@ def sg():
 def create_snapshot():
 	a=input("Enter Volume_ID: ")
 	b=input("Enter The Description of This Snapshot: \n")
-	os.system(f"aws ec2 create-snapshot --volume-id {a} --description {b}")
+	os.system(f"aws ec2 create-snapshot --volume-id {a} --description '{b}'")
 	input("\n \nTask Completed, Press Enter To continue")
 
 

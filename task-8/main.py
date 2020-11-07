@@ -14,8 +14,9 @@ print("\t\t\t -------------")
 password = getpass.getpass("Enter your password to continue: ")
 
 if password != "ARTH":
-    print("Password is incorrect")
+    input("Password is incorrect")
     exit()
+
 
 
 def main():

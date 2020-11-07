@@ -22,25 +22,22 @@ def hello_from_aws():
         print(i)
         if i==0:
             awsauto.configure_aws()
-        if i == 1:
+        elif i == 1:
             awsauto.key_pair()
-        if i == 2:
+        elif i == 2:
             awsauto.ec2()
-        if i == 3:
+        elif i == 3:
             awsauto.ebs()
-        if i == 4:
+        elif i == 4:
             awsauto.sg()
-        if i == 5:
+        elif i == 5:
             awsauto.s3()
-        if i == 6:
+        elif i == 6:
             awsauto.cloudfront()
-        if i == 7:
+        elif i == 7:
             break
-        if i == 8:
+        elif i == 8:
             exit()
-        
-        
-
         else:
             input("Incorrect Option, please Press Enter")
             continue
