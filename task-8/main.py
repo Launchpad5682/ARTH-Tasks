@@ -3,6 +3,7 @@ from partition_lvm_static import partition_menu
 from hadoop import hadoop
 from docker_task import script
 from AWS import awsmain
+from machine_learning import predict
 
 import getpass
 os.system("clear")
@@ -28,7 +29,8 @@ def main():
         print('2. Hadoop')
         print('3. Modifying Storages')
         print('4. Docker and Web Server')
-        print('5. Quit')
+        print('5. Predict Salary of an Employee - ML model')
+        print('6. Quit')
 
         main_var = int(input('Enter the option: '))
 
@@ -49,6 +51,9 @@ def main():
             continue
 
         elif main_var == 5:
+            predict.prediction()
+
+        elif main_var == 6:
             exit()
 
         else:
