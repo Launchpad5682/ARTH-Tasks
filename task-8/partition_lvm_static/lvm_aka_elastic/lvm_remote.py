@@ -7,6 +7,8 @@ def LVM_remote():
 
     login = input('Enter the username@ip_address')
 
+    os.system('sleep 5')
+
     while True:
         os.system('clear')
         print("1: Create Volume Group")
@@ -18,7 +20,9 @@ def LVM_remote():
         print('7: Display the volume group')
         print('8: Create the physical volume')
         print('9. Change the user')
-        print('Enter any other code to quit')
+        print('10. Return to Main Menu')
+        print('11. Exit')
+
         code = int(input('Enter the code:'))
 
         if(code == 1):
@@ -64,6 +68,12 @@ def LVM_remote():
             os.system('clear')
             LVM_remote()
 
+        elif code == 10:
+            break
+
+        elif code == 11:
+            exit()
+
         else:
-            os.system('clear')
-            return
+            input("Invalid Value, Press Enter to Continue")
+            continue

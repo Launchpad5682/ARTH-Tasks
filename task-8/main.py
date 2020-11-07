@@ -1,7 +1,6 @@
 import os
 from partition_lvm_static import partition_menu
 from hadoop import hadoop
-# from hadoop import hadoop_setup
 from docker_task import script
 from AWS import awsmain
 
@@ -32,17 +31,17 @@ def main():
 
         main_var = int(input('Enter the option: '))
 
-
         if main_var == 1:
             awsmain.hello_from_aws()
             continue
 
         elif main_var == 2:
-            # hadoop_setup.hadoop()
+            hadoop.hadoop()
             continue
 
         elif main_var == 3:
             partition_menu.partition()
+            continue
 
         elif main_var == 4:
             script.hello()

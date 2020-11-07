@@ -2,12 +2,15 @@ import os
 
 
 def hadoop_client_remote():
+    os.system('clear')
 
     print('I assume the Hadoop Client is already configured')
     print("You are in the remote mode -->")
     login = input('Enter the username@ip_address')
 
     while True:
+        os.system('clear')
+
         print('1. List files in the hadoop cluster')
         print('2. List files in the directory')
         print('3. Upload file')
@@ -15,6 +18,8 @@ def hadoop_client_remote():
         print('5. Download file')
         print('6. Delete the file')
         print('7. Use different user')
+        print('8. Return to Main Menu')
+        print('9. Exit')
 
         var = int(input('Enter the option: '))
 
@@ -55,5 +60,12 @@ def hadoop_client_remote():
             os.system('clear')
             hadoop_client_remote()
 
+        elif var == 8:
+            break
+
+        elif var == 9:
+            exit()
+
         else:
-            return
+            input("Invalid Value, Press Enter to Continue")
+            continue

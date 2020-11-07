@@ -3,6 +3,8 @@ import os
 
 def LVM_local():
     print("You are in Local execution console-->")
+
+    os.system('sleep 5')
     
     while True:
         os.system('clear')
@@ -14,15 +16,17 @@ def LVM_local():
         print('6: Display the physical volumes')
         print('7: Display the volume group')
         print('8: Create the physical volume')
-        print('Enter any other code to quit')
+        print('9. Return to Main Menu')
+        print('10. Exit')
+
         code = int(input('Enter the code:'))
 
-        if(code == 1):
+        if code == 1:
             pv = input('Enter the physical volume names using space: ')
             vg_name = input('Enter the volume group name: ')
             os.system('vgcreate {} {}'.format(vg_name, pv))
 
-        elif(code == 2):
+        elif code == 2:
             size = input('Enter the size of the partition with G,M,K: ')
             name = input('Enter the name of the partition: ')
             vg_name = input('Enter the name of the volumee group: ')
@@ -30,31 +34,38 @@ def LVM_local():
                 'lvcreate --size {} --name {} {}'.format(size, name, vg_name))
             os.system('udevadm settle')
 
-        elif(code == 3):
+        elif code == 3:
             mount = input('Enter the directory to mount: ')
             partition = input('Enter the partition name to mount: ')
             os.system('mkfs.ext4 {}'.format(partition))
             os.system('mount {} {}'.format(partition, mount))
 
-        elif(code == 4):
+        elif code == 4:
             size = input('Enter the size to extend: ')
             name = input('Enter the name of lv (eg: /dev/vg_name/lv_name): ')
             os.system('lvextend --size {} {}'.format(size, name))
 
-        elif(code == 5):
+        elif code == 5:
             name = input('Enter the name of lv (eg: /dev/vg_name/lv_name): ')
             size = input('Enter the size to reduce: ')
             os.system('lvreduce --size {} {}'.format(size, name))
 
-        elif(code == 6):
+        elif code == 6:
             os.system('fdisk -l')
 
-        elif(code == 7):
+        elif code == 7:
             os.system('lvdisplay')
 
-        elif(code == 8):
+        elif code == 8:
             pv = input('Enter the drive name to create physical volumes: ')
             os.system('pvcreate {}'.format(pv))
+
+        elif code == 9:
+            break
+
+        elif code == 10:
+            exit()
+
         else:
-            os.system('clear')
-            return
+            input("Invalid Value, Press Enter to Continue")
+            continue
