@@ -1,0 +1,12 @@
+FROM centos:latest
+RUN yum -y update 
+RUN yum -y install httpd 
+RUN yum -y install net-tools
+ADD index.html /var/www/html
+EXPOSE 80
+ENV HOME /root
+RUN mkdir -p /scripts
+COPY http.sh /scripts
+WORKDIR /scripts
+RUN chmod +x http.sh
+RUN /scripts/http.sh

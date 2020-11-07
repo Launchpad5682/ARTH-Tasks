@@ -1,12 +1,14 @@
 import os
-from hadoop.interface.local import hadoop_interface_local
-from hadoop.interface.remote import hadoop_interface_remote
+from hadoop.client.local import hadoop_client_local
+from hadoop.client.remote import hadoop_client_remote
 
 
-def hadoop_interface():
+def hadoop_client():
 
     while True:
-        print('Do you want to start/stop the hadoop ')
+        os.system('clear')
+
+        print('Do you want use the Hadoop Client')
         print('1. Locally')
         print('2. Remotely')
         print('3. Return to Main Menu')
@@ -15,10 +17,10 @@ def hadoop_interface():
         exec_type = int(input('Enter the option: '))
 
         if exec_type == 1:
-            hadoop_interface_local.hadoop_interface_local()
+            hadoop_client_local.hadoop_client_local()
 
         elif exec_type == 2:
-            hadoop_interface_remote.hadoop_interface_remote()
+            hadoop_client_remote.hadoop_client_remote()
 
         elif exec_type == 3:
             break
