@@ -1,4 +1,5 @@
 import os
+import time
 # import getpass
 # print("\t\t\tWelcome to AWS Automation")
 # print("\t\t\t--------------------")
@@ -256,7 +257,10 @@ def s3delete():
 def s3content():
 	l = input('Enter local location: ')
 	n = input('Enter bucket name: ')
+	print("\n\n Upload process initiated ..... \n \n")
 	os.system('aws s3 sync "{}" s3://{}'.format(l,n))
+	time.sleep(10)
+	
 	input("\n \nTask Completed, Press Enter To continue")
 
 def s3deleteobj():
