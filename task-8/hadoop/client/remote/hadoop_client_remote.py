@@ -6,7 +6,7 @@ def hadoop_client_remote():
 
     print('I assume the Hadoop Client is already configured')
     print("You are in the remote mode -->")
-    login = input('Enter the username@ip_address')
+    login = input('Enter the username@ip_address: ')
 
     while True:
         os.system('clear')
@@ -24,11 +24,13 @@ def hadoop_client_remote():
         var = int(input('Enter the option: '))
 
         if var == 1:
-            os.system('hadoop fs -ls /')
+            os.system("ssh {} hadoop fs -ls /".format(login))
+            input('Press enter to continue')
 
         elif var == 2:
             dir = input('Enter the valid directory to list the contents: ')
             os.system('ssh {} ls {}'.format(login, dir))
+            input('Press enter to continue')
 
         elif var == 3:
             print('Do you want to select the block size ?, Then press 1')
@@ -38,23 +40,28 @@ def hadoop_client_remote():
                 block_size = int(('Enter the block size like 512M,1024K: '))
                 file = input("Enter the filename with the complete path: ")
                 os.system(
-                    'ssh {} hadoop fs -Ddfs.block.size={} -put {}' .format(login, block_size, file))
+                    'ssh {} hadoop fs -Ddfs.block.size={} -put {} /' .format(login, block_size, file))
+                os.system('sleep 5')
 
             else:
                 file = input("Enter the filename with the complete path: ")
-                os.system('ssh {} hadoop fs -put {}'.format(login, file))
+                os.system('ssh {} hadoop fs -put {} /'.format(login, file))
+                os.system('sleep 5')
 
         elif var == 4:
             file = input("Enter the filename with the complete path: ")
             os.system('ssh {} hadoop fs -cat {}'.format(login, file))
+            input('Press enter to continue')
 
         elif var == 5:
             file = input("Enter the filename with the complete path: ")
             os.system('ssh {} hadoop fs -get {}'.format(login, file))
+            input('Press enter to continue')
 
         elif var == 6:
             file = input("Enter the filename with the complete path: ")
             os.system('ssh {} hadoop fs -rm {}'.format(login, file))
+            input('Press enter to continue')
 
         elif var == 7:
             os.system('clear')

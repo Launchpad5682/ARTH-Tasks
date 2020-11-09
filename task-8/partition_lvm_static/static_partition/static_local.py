@@ -20,15 +20,18 @@ def static_local():
             drive_name = input('Enter the disk name: ')
             os.system('fdisk {}'.format(drive_name))
             os.system('udevadm settle')
+            input('enter to continue ')
 
         elif code == 2:
             mount = input('Enter the directory to mount: ')
             partition = input('Enter the partition name to mount: ')
             os.system('mkfs.ext4 {}'.format(partition))
             os.system('mount {} {}'.format(partition, mount))
+            input('enter to continue ')
 
         elif code == 3:
             os.system('fdisk -l')
+            input('enter to continue ')
 
         elif code == 4:
             break

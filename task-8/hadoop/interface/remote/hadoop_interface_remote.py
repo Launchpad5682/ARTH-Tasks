@@ -7,7 +7,7 @@ def hadoop_interface_remote():
         os.system('clear')
         print("You are in Remote execution console-->")
 
-        login = input('Enter the username@ip_address')
+        login = input('Enter the username@ip_address: ')
 
         print('Select whether node is ')
         print('1. Namenode')
@@ -45,13 +45,17 @@ def hadoop_remote_namenode(login):
         op = int(input('Select the option: '))
 
         if op == 1:
-            os.system('ssh {} systemctl stop firewall', login)
-            os.system('ssh {} hadoop-daemon.sh start namenode', login)
-            os.system('ssh {} hadoop dfsadmin -safemode leave', login)
+            os.system(
+                f"""ssh {login} hadoop-daemon.sh start namenode &&
+                    ssh {login} hadoop dfsadmin - safemode leave""")
+            print('Namenode Started')
+            os.system('sleep 5')
 
         elif op == 2:
-            os.system('ssh {} systemctl stop firewall', login)
-            os.system('ssh {} hadoop-daemon.sh stop namenode', login)
+            os.system(
+                f"""ssh {login} hadoop-daemon.sh stop namenode""")
+            print('Namenode Stopped')
+            os.system('sleep 5')
 
         elif op == 3:
             break
@@ -75,12 +79,14 @@ def hadoop_remote_datanode(login):
         op = int(input('Select the option: '))
 
         if op == 1:
-            os.system('ssh {} systemctl stop firewall', login)
-            os.system('ssh {} hadoop-daemon.sh start datanode', login)
+            os.system(f'ssh {login} hadoop-daemon.sh start datanode')
+            print('Datanode Started')
+            os.system('sleep 5')
 
         elif op == 2:
-            os.system('ssh {} systemctl stop firewall', login)
-            os.system('ssh {} hadoop-daemon.sh stop datanode', login)
+            os.system(f'ssh {login} hadoop-daemon.sh stop datanode')
+            print('Datanode Stopped')
+            os.system('sleep 5')
 
         elif op == 3:
             break

@@ -25,6 +25,7 @@ def LVM_local():
             pv = input('Enter the physical volume names using space: ')
             vg_name = input('Enter the volume group name: ')
             os.system('vgcreate {} {}'.format(vg_name, pv))
+            input('enter to continue ')
 
         elif code == 2:
             size = input('Enter the size of the partition with G,M,K: ')
@@ -33,32 +34,39 @@ def LVM_local():
             os.system(
                 'lvcreate --size {} --name {} {}'.format(size, name, vg_name))
             os.system('udevadm settle')
+            input('enter to continue ')
 
         elif code == 3:
             mount = input('Enter the directory to mount: ')
             partition = input('Enter the partition name to mount: ')
             os.system('mkfs.ext4 {}'.format(partition))
             os.system('mount {} {}'.format(partition, mount))
+            input('enter to continue ')
 
         elif code == 4:
             size = input('Enter the size to extend: ')
             name = input('Enter the name of lv (eg: /dev/vg_name/lv_name): ')
             os.system('lvextend --size {} {}'.format(size, name))
+            input('enter to continue ')
 
         elif code == 5:
             name = input('Enter the name of lv (eg: /dev/vg_name/lv_name): ')
             size = input('Enter the size to reduce: ')
             os.system('lvreduce --size {} {}'.format(size, name))
+            input('enter to continue ')
 
         elif code == 6:
             os.system('fdisk -l')
+            input('enter to continue ')
 
         elif code == 7:
             os.system('lvdisplay')
+            input('enter to continue ')
 
         elif code == 8:
             pv = input('Enter the drive name to create physical volumes: ')
             os.system('pvcreate {}'.format(pv))
+            input('enter to continue ')
 
         elif code == 9:
             break

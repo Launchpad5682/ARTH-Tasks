@@ -30,7 +30,7 @@ def hello():
                 cd=os.getcwd()
                 os_name = input("Enter the name of the container ")
                 os.chdir("docker_task/docker_python_task")
-                os.system("docker build -t python_repl:v1 . >/dev/null 2>&1")
+                os.system("docker build -t python_repl:v1 .")
                 print("Docker Conainer is setting up")
                 os.system("tput setaf 3")
                 print("--------------------------------------")
